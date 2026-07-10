@@ -14,3 +14,5 @@ function Account({ title, amount, description }) {
         </div>
     );
 }
+
+export default Account;
