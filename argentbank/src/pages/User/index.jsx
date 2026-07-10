@@ -4,7 +4,7 @@ import Account from '../../components/Account';
 function User() {
   return (
     <main className="main bg-dark">
-        <div className="header">
+        <div className="header-user">
             <h1>Welcome back<br />Tony Jarvis</h1>
             <button className="edit-button">Edit Name</button>
         </div>

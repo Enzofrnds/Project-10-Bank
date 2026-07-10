@@ -1,9 +1,15 @@
+main{
+    display: flex;
+    flex-direction: column;
+}
+
 .hero{
     background-image: url('../../assets/bank-tree.jpeg');
     background-position: 0 -50px;
     background-size: cover;
     background-repeat: no-repeat;
     height: 300px;
+    width: 100%;
     position: relative;
     &__content{
         position: relative;

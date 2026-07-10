@@ -5,8 +5,9 @@
 main {
   height: 80vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-top: 0.5rem;
 }
 
 .sign-in-button {
