@@ -9,7 +9,7 @@ function Header() {
                 <NavLink to="/" className="header__nav__logo">
                     <img src={Logo} alt="Argent Bank Logo" />
                 </NavLink>
-                <NavLink to="/login" className="header__nav__link">
+                <NavLink to="/SignIn" className="header__nav__link">
                     <i className="fa fa-user-circle"></i>
                     <p>Sign In</p>
                 </NavLink>
