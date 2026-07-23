@@ -7,11 +7,15 @@ import Home from './pages/Home'
 import Footer from './components/Footer'
 import SignIn from './pages/SignIn'
 import User from './pages/User'
+import { store } from './app/store'
+import { Provider } from 'react-redux'
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <Router>
-      <Header />
+    <Provider store={store}>
+      <Router>
+        <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/SignIn" element={<SignIn />} />
@@ -19,5 +23,6 @@ createRoot(document.getElementById('root')).render(
       </Routes>
       <Footer />
     </Router>
+    </Provider>
   </StrictMode>,
 )
