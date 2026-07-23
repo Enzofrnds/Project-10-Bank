@@ -6,7 +6,7 @@ import iconSecurity from '../../assets/icon-security.png'
 
 function Home() {
     return (
-        <main>
+        <main className="main">
             <section className="hero">
                 <div className="hero__content">
                     <h2 className="sr-only">Promoted Content</h2>

@@ -2,7 +2,7 @@
   background-color: #12002b;
 }
 
-main {
+.signIn-main {
   height: 80vh;
   display: flex;
   align-items: flex-start;
