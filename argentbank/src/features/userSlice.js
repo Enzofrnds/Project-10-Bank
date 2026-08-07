@@ -4,6 +4,7 @@ const initialState = {
   token: null,
   isLoggedIn: false,
   user: null,
+  username: null,
 };
 
 const userSlice = createSlice({
@@ -18,12 +19,14 @@ const userSlice = createSlice({
     
     setUserProfile: (state, action) => {
       state.user = action.payload;
+      state.username = action.payload.username;
     },
     
     logout: (state) => {
       state.token = null;
       state.isLoggedIn = false;
       state.user = null;
+      state.username = null;
       localStorage.removeItem('token');
     },
   },

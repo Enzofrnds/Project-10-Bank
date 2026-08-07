@@ -9,6 +9,7 @@ function Header() {
     const isLoggedIn = useSelector((state) => state.user.isLoggedIn)
     const firstName = useSelector((state) => state.user.user?.firstName)
     const lastName = useSelector((state) => state.user.user?.lastName)
+    const username = useSelector((state) => state.user.username)
 
     const handleLogout = () => {
         dispatch(logout())
@@ -23,7 +24,7 @@ function Header() {
                 {isLoggedIn ? (
                     <NavLink to="/User" className="header__nav__link">
                         <i className="fa fa-user-circle"></i>
-                        <p>{firstName} {lastName}</p>
+                        <p>{username || firstName + ' ' + lastName} </p>
                     </NavLink>
                 ) : null}
                 {isLoggedIn ? (
