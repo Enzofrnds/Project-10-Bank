@@ -1,12 +1,12 @@
 .account {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  gap: 1rem;
   border: 1px solid black;
   background-color: #fff;
   width: 80%;
   margin: 0 auto;
-  flex-direction: column;
   padding: 1.5rem;
   box-sizing: border-box;
   text-align: left;
@@ -26,16 +26,91 @@
   font-weight: normal;
   padding: 0;
 }
-@media (min-width: 720px) {
-  .account {
-    flex-direction: row;
-  }
-  .account__content__cta {
-    flex: 0;
-  }
-  .account .transaction-button {
-    width: 200px;
-  }
+.account__content__cta {
+  display: contents;
+}
+
+.transaction-history {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+.transaction-history__header {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr auto;
+  gap: 1rem;
+  padding: 0 1rem 0.75rem;
+  font-size: 1rem;
+}
+
+.transaction-history__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.transaction-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.transaction-item__summary {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr auto;
+  grid-column: 2;
+  justify-self: end;
+  width: min(200px, 100%);
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 0;
+  margin-top: 0;
+  background-color: #00bc77;
+  color: #fff;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+}
+
+.transaction-item__toggle {
+  justify-self: end;
+}
+
+.transaction-item__details {
+  display: grid;
+  gap: 0.35rem;
+  padding: 1rem;
+  background-color: #00bc77;
+  color: #fff;
+}
+
+.transaction-item__details p {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.transaction-item__value {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  line-height: 1;
+}
+
+.transaction-item__icon {
+  width: 0.75rem;
+  height: 0.75rem;
+  fill: currentColor;
+  flex: none;
+  position: relative;
+  top: 0.05em;
+}
+
+.transaction-item__details span,
+.transaction-item__details strong {
+  font-weight: normal;
 }
 
 .transaction-button {

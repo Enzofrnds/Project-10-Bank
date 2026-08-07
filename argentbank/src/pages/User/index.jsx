@@ -9,16 +9,76 @@ const accountsData = [
     title: 'Argent Bank Checking (x8349)',
     amount: '$2,082.79',
     description: 'Available Balance',
+    transactionHistory: [
+      {
+        date: '2020-27-02',
+        description: 'Golden Sun Bakery',
+        amount: 8.00,
+        balance: 298.00,
+      },
+      {
+        date: '2020-27-02',
+        description: 'Golden Sun Bakery',
+        amount: 8.00,
+        balance: 298.00,
+      },
+      {
+        date: '2020-27-02',
+        description: 'Golden Sun Bakery',
+        amount: 8.00,
+        balance: 298.00,
+      },
+    ],
   },
   {
     title: 'Argent Bank Savings (x6712)',
     amount: '$10,928.42',
     description: 'Available Balance',
+    transactionHistory: [
+      {
+        date: '2020-27-02',
+        description: 'Golden Sun Bakery',
+        amount: 8.00,
+        balance: 298.00,
+      },
+      {
+        date: '2020-27-02',
+        description: 'Golden Sun Bakery',
+        amount: 8.00,
+        balance: 298.00,
+      },
+      {
+        date: '2020-27-02',
+        description: 'Golden Sun Bakery',
+        amount: 8.00,
+        balance: 298.00,
+      },
+    ],
   },
   {
     title: 'Argent Bank Credit Card (x8349)',
     amount: '$184.30',
     description: 'Current Balance',
+    transactionHistory: [
+      {
+        date: '2020-27-02',
+        description: 'Golden Sun Bakery',
+        amount: 8.00,
+        balance: 298.00,
+      },
+      {
+        date: '2020-27-02',
+        description: 'Golden Sun Bakery',
+        amount: 8.00,
+        balance: 298.00,
+      },
+      {
+        date: '2020-27-02',
+        description: 'Golden Sun Bakery',
+        amount: 8.00,
+        balance: 298.00,
+      },
+    ],
   },
 ];
 
@@ -100,6 +160,7 @@ function User() {
           title={account.title}
           amount={account.amount}
           description={account.description}
+          transactions={account.transactionHistory}
         />
       ))}
     </main>
