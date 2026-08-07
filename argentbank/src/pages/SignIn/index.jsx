@@ -3,8 +3,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { setToken, setUserProfile } from '../../features/userSlice';
-
-const API_URL = 'http://localhost:3001/api/v1/user';
+import { loginUser, getUserProfile } from '../../services/authApi';
 
 function SignIn() {
     const navigate = useNavigate();
@@ -17,47 +16,26 @@ function SignIn() {
     setErrorMessage('');
 
     const formData = new FormData(e.target);
-    const email = formData.get('username'); // L'API d'Argent Bank attend l'email ici
+    const email = formData.get('username');
     const password = formData.get('password');
     const rememberMe = formData.get('remember-me');
 
     try {
-      const loginResponse = await fetch(`${API_URL}/login`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
-      });
-
-      const loginData = await loginResponse.json();
-
-      if (!loginResponse.ok) {
-        throw new Error(loginData.message || 'Identifiants incorrects');
-      }
-
+      const loginData = await loginUser({ email, password });
       const token = loginData.body.token;
 
       if (rememberMe) {
         localStorage.setItem('token', token);
       }
 
-      
       dispatch(setToken(token));
 
-      const profileResponse = await fetch(`${API_URL}/profile`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-      });
-        const profileData = await profileResponse.json();
-        if(profileResponse.ok) {
-          dispatch(setUserProfile(profileData.body));
-        }
+      const profileData = await getUserProfile(token);
+      dispatch(setUserProfile(profileData.body));
 
-       navigate('/User'); 
+      navigate('/User');
     } catch (error) {
-      setErrorMessage(error.message);
+      setErrorMessage(error.message || 'Identifiants incorrects');
     }
   };
 

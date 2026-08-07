@@ -20,7 +20,6 @@ const userSlice = createSlice({
       state.user = action.payload;
     },
     
-    // Réinitialise le store à la déconnexion
     logout: (state) => {
       state.token = null;
       state.isLoggedIn = false;
