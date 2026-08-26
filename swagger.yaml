@@ -110,6 +110,132 @@ paths:
           description: Invalid Fields
         '500':
           description: Internal Server Error
+  /user/{userId}/accounts:
+    get:
+      security:
+        - Bearer: []
+      tags:
+        - User Module
+      summary: User Accounts API
+      description: API for fetching accounts for the authenticated user
+      parameters:
+        - in: header
+          name: Authorization
+          description: Attach Bearer JWT token
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: User accounts retrieved successfully
+          schema:
+            $ref: '#/definitions/AccountsResponse'
+        '401':
+          description: Unauthorized
+        '500':
+          description: Internal Server Error
+  /user/accounts/{accountId}:
+    get:
+      security:
+        - Bearer: []
+      tags:
+        - Account Module
+      summary: Get a specific account
+      description: API for fetching the details of an account owned by the authenticated user
+      parameters:
+        - in: header
+          name: Authorization
+          description: Attach Bearer JWT token
+          required: true
+          type: string
+        - in: path
+          name: accountId
+          description: Account identifier
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Account details retrieved successfully
+          schema:
+            $ref: '#/definitions/AccountResponse'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Account not found
+        '500':
+          description: Internal Server Error
+  /user/accounts/{accountId}/transactions:
+    get:
+      security:
+        - Bearer: []
+      tags:
+        - Account Module
+      summary: Get account transactions
+      description: API for fetching transactions for a specific account
+      parameters:
+        - in: header
+          name: Authorization
+          description: Attach Bearer JWT token
+          required: true
+          type: string
+        - in: path
+          name: accountId
+          description: Account identifier
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Account transactions retrieved successfully
+          schema:
+            $ref: '#/definitions/TransactionsResponse'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Account not found
+        '500':
+          description: Internal Server Error
+  /user/accounts/{accountId}/transactions/{transactionId}:
+    get:
+      security:
+        - Bearer: []
+      tags:
+        - Account Module
+      summary: Get transaction details
+      description: API for fetching the full details of a transaction
+      parameters:
+        - in: header
+          name: Authorization
+          description: Attach Bearer JWT token
+          required: true
+          type: string
+        - in: path
+          name: accountId
+          description: Account identifier
+          required: true
+          type: string
+        - in: path
+          name: transactionId
+          description: Transaction identifier
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Transaction details retrieved successfully
+          schema:
+            $ref: '#/definitions/TransactionResponse'
+        '401':
+          description: Unauthorized
+        '404':
+          description: Transaction or account not found
+        '500':
+          description: Internal Server Error
 securityDefinitions:
   Bearer:
     type: apiKey
