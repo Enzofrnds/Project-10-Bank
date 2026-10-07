@@ -104,14 +104,11 @@ function User() {
 
   const handleSave = async (e) => {
     e.preventDefault();
-    const fromData = new FormData(e.target);
-    dispatch(setUserProfile({ ...user, username: fromData.get('username') }));
+    const formData = new FormData(e.target);
+    dispatch(setUserProfile({ ...user, username: formData.get('username') }));
     setEditing(false);
   }
-
-    const firstName = user.firstName || '';
-    const lastName = user.lastName || '';
-
+  
   return (
     <main className="main main bg-dark">
       <div className="header-user">

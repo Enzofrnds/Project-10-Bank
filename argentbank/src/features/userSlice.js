@@ -27,10 +27,9 @@ const userSlice = createSlice({
       state.isLoggedIn = false;
       state.user = null;
       state.username = null;
-      localStorage.removeItem('token');
     },
   },
 });
 
-export const { setToken, setUserProfile, updateUserName, logout } = userSlice.actions;
+export const { setToken, setUserProfile, logout } = userSlice.actions;
 export default userSlice.reducer;
